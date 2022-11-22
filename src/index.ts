@@ -1,25 +1,19 @@
-export interface Options {
-  parseElement: ['imports', 'components']; // components by default
-}
+import { ComponentStructure } from './lib/types';
+import { parseInput } from './parseInput';
 
-const SCRIPT_REGEX = /<script(?<scriptAttr>[^>]*)?>(?<content>.*?)<\/script>/s;
+import { getFileList } from './readDir';
+import { readFile } from './readFile';
 
-const input = `<script lang='ts'>
-export default {
-  components: {
-    ALink,
-    AInput,
-    List
-  };
-};
-</script>`;
+const filesList: string[] = getFileList(__dirname + '/../../vue-test');
+const filesContent: string[][] = [];
+const parsedFiles: ComponentStructure[] = [];
+filesList.forEach((file) => {
+  filesContent.push([file, readFile(file)]);
+});
+filesContent.forEach(([fileName, content]) => {
+  parsedFiles.push(parseInput(fileName, content));
+});
 
-const result = input.match(SCRIPT_REGEX);
-
-const COMPONENTS_REGEX = /components: {.*?};/s;
-const components = result.groups.content.match(COMPONENTS_REGEX);
-
-const COMPONENTS_LIST_REGEX = /([A-Z]{1,2}[a-zA-Z]{1,})/g;
-const componentsList = components[0].match(COMPONENTS_LIST_REGEX);
-
-console.log('components x.vue', result.groups.scriptAttr, componentsList);
+// console.log('files', filesList);
+// console.log('files Content', filesContent);
+console.log('parsed', parsedFiles);
