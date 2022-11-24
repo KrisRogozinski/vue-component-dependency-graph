@@ -1,4 +1,5 @@
 import { readdirSync } from 'fs';
+import { VUE_FILE_REGEX } from './lib/constants';
 
 export const getFileList = (dirName: string): string[] => {
   let files = [];
@@ -8,7 +9,9 @@ export const getFileList = (dirName: string): string[] => {
     if (item.isDirectory()) {
       files = [...files, ...getFileList(`${dirName}/${item.name}`)];
     } else {
-      files.push(`${dirName}/${item.name}`);
+      if (VUE_FILE_REGEX.test(item.name)) {
+        files.push(`${dirName}/${item.name}`);
+      }
     }
   }
 

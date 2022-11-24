@@ -1,13 +1,17 @@
 import { COMPONENTS_LIST_REGEX, COMPONENTS_REGEX, SCRIPT_REGEX } from './lib/constants';
 import { ComponentStructure } from './lib/types';
 
+const clearFilename = (fileName: string): string => {
+  return fileName.replace(`${__dirname}`, '');
+};
+
 const buildComponentsObject = (
   fileName: string,
   components: string[],
   options?: Record<string, string>,
 ): ComponentStructure => {
   return {
-    file: fileName,
+    file: clearFilename(fileName),
     components,
     options: { ...options },
   };
