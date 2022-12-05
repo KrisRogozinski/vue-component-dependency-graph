@@ -1,5 +1,5 @@
 import { readdirSync } from 'fs';
-import { VUE_FILE_REGEX } from './lib/constants';
+import { COMPONENT_FILE_NAME } from './lib/constants';
 
 const excludeDirs = ['node_modules'];
 
@@ -11,7 +11,7 @@ export const getFileList = (dirName: string): string[] => {
     if (item.isDirectory() && !excludeDirs.includes(item.name)) {
       files = [...files, ...getFileList(`${dirName}/${item.name}`)];
     } else {
-      if (VUE_FILE_REGEX.test(item.name)) {
+      if (COMPONENT_FILE_NAME.test(item.name)) {
         files.push(`${dirName}/${item.name}`);
       }
     }

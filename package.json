@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/index.ts",
-    "start:nodemon": "./node_modules/nodemon/bin/nodemon.js src/index.ts --watch --ignore '*.json'",
+    "start:nodemon": "./node_modules/nodemon/bin/nodemon.js src/index.ts --watch",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix"
   },

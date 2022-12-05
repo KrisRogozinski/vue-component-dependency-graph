@@ -7,4 +7,5 @@ export declare interface ComponentStructure {
   name: string;
   components: string[];
   options?: { [key: string]: string };
+  children?: ComponentStructure[];
 }
