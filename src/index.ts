@@ -4,7 +4,7 @@ import { getFileList } from './readDir';
 import { readFile } from './readFile';
 import { saveDataToFile } from './writeFile';
 
-const filesList: string[] = getFileList(`${__dirname}`);
+const filesList: string[] = getFileList(`${__dirname}/../../vue-test`);
 const filesContent: string[][] = [];
 const parsedFiles: ComponentStructure[] = [];
 filesList.forEach((file) => {

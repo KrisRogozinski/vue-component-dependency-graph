@@ -2,11 +2,12 @@
   "name": "vue-component-graph",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.ts",
+  "bin": "./bin/index.js",
   "scripts": {
     "build": "tsc",
     "start": "ts-node src/index.ts",
-    "start:nodemon": "./node_modules/nodemon/bin/nodemon.js src/index.ts --watch",
+    "start:nodemon": "./node_modules/nodemon/bin/nodemon.js src/index.ts --watch --ignore '*.json'",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix"
   },
@@ -19,15 +20,16 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "^18.11.9",
-    "@typescript-eslint/eslint-plugin": "^5.44.0",
-    "@typescript-eslint/parser": "^5.44.0",
-    "eslint": "^8.28.0",
+    "arg": "^5.0.2",
     "eslint-config-prettier": "^8.5.0",
     "husky": "^8.0.2",
     "prettier": "^2.7.1",
     "typescript": "^4.9.3"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.29.0",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1"

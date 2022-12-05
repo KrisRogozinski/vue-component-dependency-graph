@@ -4,6 +4,7 @@ export declare interface Options {
 
 export declare interface ComponentStructure {
   file: string;
+  name: string;
   components: string[];
   options?: { [key: string]: string };
 }
