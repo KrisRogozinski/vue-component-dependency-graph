@@ -1,5 +1,5 @@
 import { ComponentStructure } from './lib/types';
-import { buildComponentTree, parseInput } from './parseInput';
+import { parseInput, prepareTree } from './parseInput';
 import { getFileList } from './readDir';
 import { readFile } from './readFile';
 import { saveDataToFile } from './writeFile';
@@ -14,7 +14,7 @@ filesContent.forEach(([fileName, content]) => {
   parsedFiles.push(parseInput(fileName, content));
 });
 
-const tree = buildComponentTree(parsedFiles, parsedFiles);
+const tree = prepareTree(parsedFiles);
 
 saveDataToFile('parsedFiles.json', parsedFiles);
 saveDataToFile('tree.json', tree);

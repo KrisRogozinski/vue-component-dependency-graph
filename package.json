@@ -8,6 +8,7 @@
     "build": "tsc",
     "start": "ts-node src/index.ts",
     "start:nodemon": "./node_modules/nodemon/bin/nodemon.js src/index.ts --watch",
+    "display:graph": "live-server --port=8181",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix"
   },

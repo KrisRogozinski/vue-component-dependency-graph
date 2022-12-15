@@ -6,6 +6,7 @@ export declare interface ComponentStructure {
   file: string;
   name: string;
   components: string[];
+  dir?: string;
   options?: { [key: string]: string };
   children?: ComponentStructure[];
 }

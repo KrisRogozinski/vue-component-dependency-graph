@@ -8,6 +8,6 @@ const fileSaveError = (err) => {
   console.log('File saved successfully');
 };
 
-export const saveDataToFile = (fileName: string, data: ComponentStructure[]) => {
+export const saveDataToFile = (fileName: string, data: ComponentStructure[] | ComponentStructure) => {
   writeFile(fileName, JSON.stringify(data), fileSaveError);
 };

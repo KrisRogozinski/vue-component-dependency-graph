@@ -1,7 +1,7 @@
 import { readdirSync } from 'fs';
 import { COMPONENT_FILE_NAME } from './lib/constants';
 
-const excludeDirs = ['node_modules'];
+const excludeDirs = ['node_modules', '.nuxt'];
 
 export const getFileList = (dirName: string): string[] => {
   let files = [];
